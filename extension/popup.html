@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en-GB">
+<head><meta charset="utf-8"><title>Better Keep</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<main>
+  <h1>Better Keep</h1>
+  <section id="connect" hidden>
+    <p>Connect once. Then right-click any page, link, picture or selected words and choose <strong class="nowrap">Save to Better Keep</strong>.</p>
+    <button type="button" class="main wide" id="connectapp">Connect from Better Keep</button>
+    <p class="hint">This opens Better Keep's Settings, where your password manager can fill in your password.</p>
+    <button type="button" class="wide" id="typeinstead">Type my password here instead</button>
+  </section>
+  <form id="signin" hidden>
+    <p>Type the email and password you use for Better Keep.</p>
+    <label><span class="label">Email</span><input id="email" type="email" autocomplete="email" required></label>
+    <label for="password"><span class="label">Password</span></label>
+    <div class="password">
+      <input id="password" type="password" autocomplete="current-password" required aria-label="Password">
+      <button type="button" id="show" aria-pressed="false">Show</button>
+    </div>
+    <button class="main wide" type="submit" id="go">Sign in</button>
+    <button type="button" class="wide" id="backconnect">Back</button>
+  </form>
+  <section id="signedin" hidden>
+    <div class="words">
+      <p>Signed in as <strong id="who"></strong></p>
+      <p class="hint" id="count"></p>
+      <p>Right-click any page, link, picture or selected words, then choose <strong class="nowrap">Save to Better Keep</strong>.</p>
+    </div>
+    <div class="stack">
+      <button type="button" class="wide" id="refresh">Refresh notebooks</button>
+      <button type="button" class="wide" id="open">Open Better Keep</button>
+      <button type="button" class="wide" id="out">Sign out</button>
+    </div>
+  </section>
+  <p class="problem" id="problem" role="alert" hidden></p>
+  <p class="hint version" id="version"></p>
+</main>
+<script type="module" src="popup.js"></script>
+</body>
+</html>

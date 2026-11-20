@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Better Keep</title>
+    <meta name="description" content="Private notes in your own notebooks." />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icons/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+    <meta name="theme-color" content="#e9e7e2" />
+    <script>
+      // Set the theme and text size before the page paints, so there is no flash.
+      (function () {
+        try {
+          var s = JSON.parse(localStorage.getItem('bk-settings') || '{}')
+          var theme = s.theme || 'system'
+          if (theme === 'system') {
+            theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+          }
+          document.documentElement.dataset.theme = theme
+          document.documentElement.dataset.textSize = s.textSize || 'medium'
+        } catch (e) {}
+      })()
+    </script>
+    <script type="module" crossorigin src="./assets/index-DMiQO9CW.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-LoP0iq9k.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+/* The AbleMemo look: warm page, a raised rounded tile, pressed-in boxes, mint main button. */
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/inter.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+:root {
+  --page: #e9e7e2; --tile-flat: #f2f1ed; --tile: linear-gradient(145deg, #f4f3ef, #ebe9e4); --text: #2b2a28; --text-2: #5d5a55;
+  --mint: linear-gradient(180deg, #c0e9d6, #a6d4bd); --on-mint: #18392f; --mint-text: #1f6b54; --well: #ecebe6; --danger: #a12a1f;
+  --raise: inset 0 1px 2px rgba(255,255,255,.85), 0 -2px 8px rgba(255,255,255,.65), 0 4px 3px rgba(70,58,40,.24), 0 16px 18px -4px rgba(70,58,40,.3);
+  --raise-sm: inset 0 1px 1px rgba(255,255,255,.8), 0 -1px 5px rgba(255,255,255,.75), 0 3px 2px rgba(70,58,40,.3), 0 8px 9px -3px rgba(70,58,40,.24);
+  --press: inset 0 3px 6px rgba(70,58,40,.22), inset 0 -2px 0 rgba(255,255,255,.8);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: #1d1c1a; --tile-flat: #2a2927; --tile: linear-gradient(145deg, #2e2d2b, #242321); --text: #ece9e4; --text-2: #b4b0a9; --mint-text: #8fe0c4; --well: #1b1a18; --danger: #ff9d92;
+    --raise: inset 0 1px 2px rgba(255,255,255,.1), 0 -2px 8px rgba(255,255,255,.04), 0 4px 3px rgba(0,0,0,.6), 0 16px 18px -4px rgba(0,0,0,.6);
+    --raise-sm: inset 0 1px 1px rgba(255,255,255,.1), 0 -1px 4px rgba(255,255,255,.05), 0 3px 2px rgba(0,0,0,.6), 0 8px 9px -3px rgba(0,0,0,.55);
+    --press: inset 0 3px 7px rgba(0,0,0,.65), inset 0 -2px 0 rgba(255,255,255,.06);
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--page); }
+/* One plain warm surface. Chrome draws the window's edge itself, always square (the owner's choice, 20 Nov 2026). */
+html, body { background: var(--tile-flat); }
+body { color: var(--text); font: 400 16px/1.5 Inter, 'Segoe UI', system-ui, sans-serif; width: 380px; }
+main { padding: 24px; display: flex; flex-direction: column; gap: 22px; }
+h1 { margin: 0; font-size: 20px; font-weight: 600; color: var(--mint-text); }
+p { margin: 0; }
+strong, .label { font-weight: 600; }
+.nowrap { white-space: nowrap; }
+.label { color: var(--text-2); }
+form, section { display: flex; flex-direction: column; gap: 22px; }
+label { display: flex; flex-direction: column; gap: 8px; }
+.words { display: flex; flex-direction: column; gap: 8px; }
+input {
+  font: inherit; color: var(--text); width: 100%; min-height: 44px; padding: 8px 12px; border: 0; border-radius: 8px;
+  background: var(--well); box-shadow: var(--press);
+}
+/* Chrome colours filled-in boxes pale blue. Keep them the app's own pressed-in colour. */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text);
+  -webkit-box-shadow: var(--press), 0 0 0 100px var(--well) inset;
+  caret-color: var(--text);
+  transition: background-color 9999s;
+}
+.password { display: flex; gap: 8px; align-items: stretch; }
+.password input { flex: 1; min-width: 0; }
+button {
+  font: inherit; font-weight: 600; min-height: 44px; padding: 0 10px; border: 0; border-radius: 8px;
+  background: var(--tile); color: var(--text); box-shadow: var(--raise-sm); cursor: pointer; white-space: nowrap;
+}
+button.main { background: var(--mint); color: var(--on-mint); box-shadow: var(--raise-sm), 0 7px 10px -3px rgba(80,160,130,.5); }
+button.wide { width: 100%; }
+button:disabled { opacity: .6; cursor: not-allowed; }
+:focus-visible { outline: 3px solid var(--mint-text); outline-offset: 2px; }
+.stack { display: flex; flex-direction: column; gap: 12px; }
+.row { display: flex; gap: 12px; }
+.row button { flex: 1; }
+.problem { color: var(--danger); font-weight: 600; }
+.hint { color: var(--text-2); }
+[hidden] { display: none !important; }
+.version { font-size: 14px; font-weight: 600; margin-top: -8px; }

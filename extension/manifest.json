@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "AbleMemo",
+  "version": "1.3.1",
+  "description": "Right-click to save a page, a link, selected text or an image to an AbleMemo notebook.",
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "notifications",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://puhvhtioltyfiwrvmdjd.supabase.co/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "AbleMemo"
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA45INHcDz8wQe8nIPDud5SBb4C9zygOS85+sULze9//1G9cWe8DJLUo92rUNwyl6x6Jikw95vOfU63WcFgJycwl9pzzYlMZftHeon/LgWqc1gOZhmXjcW7psQUdR7ZwLO4bDuFabwcOU3MuBPds/mM3hQ142CfLZTN5d+kyf+HS69YnmFNShOJPO/6Xfa1Qobtl13WmaXfJUJ5ZCBI0Ffs2ld4PsIj9oeeCdSWx98Egc6cGLD+3fKDbauUOXURzX+FIK6J99ya1zBqlamt2xEBEDB0W69+HFoDbqLgDDDpT0Q7Qc7B59Gm8xH4O4mFyG/WMc2azIQEKkUfHNBudcKMQIDAQAB",
+  "externally_connectable": {
+    "matches": [
+      "https://ablememo.com/*"
+    ]
+  }
+}
